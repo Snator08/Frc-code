@@ -8,6 +8,7 @@
 #include <frc/Encoder.h>
 #include <studica/AHRS.h>
 #include "Constants.h"
+#include <frc/controller/PIDController.h>
 
 
 
@@ -40,10 +41,13 @@ class driveSubsystem : public frc2::SubsystemBase {
 
        // frc::DifferentialDriveOdometry m_odometry{};
 
+       frc::PIDController m_turnPID{1.0, 0.0, 0.0};
+
     public:
         driveSubsystem();
 
         void Periodic() override;
         void arcadeDrive(double speed, double rotation);
+        void turnRate(double speed);
         double getYaw();
 };
