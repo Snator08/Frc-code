@@ -8,6 +8,7 @@
 #include <frc/Encoder.h>
 #include <studica/AHRS.h>
 #include "Constants.h"
+#include <frc/controller/PIDController.h>
 
 
 
@@ -29,7 +30,8 @@ class driveSubsystem : public frc2::SubsystemBase {
         // Setup Encoder Objects
         //-----------------------
 
-        frc::Encoder m_encoder{0, 1};
+        frc::Encoder m_encoderX{0, 1};
+        frc::Encoder m_encoderY{2, 3};
 
         //-------------------
         // Setup Gyro Object
@@ -38,13 +40,16 @@ class driveSubsystem : public frc2::SubsystemBase {
         studica::AHRS navx{studica::AHRS::kUSB1};
 
 
-       // frc::DifferentialDriveOdometry m_odometry{};
+        frc::DifferentialDriveOdometry m_odometry;
+
+       frc::PIDController m_turnPID{1.0, 0.0, 0.0};
 
     public:
         driveSubsystem();
 
         void Periodic() override;
         void arcadeDrive(double speed, double rotation);
-        void drive(double speed);
-        void stop();
+        void faceTarget(frc::Translation2d targetPose);
+        bool isFacingTarget();
+        double getYaw();
 };
