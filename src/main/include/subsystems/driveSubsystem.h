@@ -45,5 +45,6 @@ class driveSubsystem : public frc2::SubsystemBase {
 
         void Periodic() override;
         void arcadeDrive(double speed, double rotation);
-        double getYaw();
+        void drive(double speed);
+        void stop();
 };

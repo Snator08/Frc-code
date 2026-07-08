@@ -14,6 +14,10 @@ void driveSubsystem::arcadeDrive(double rotation, double speed) {
     m_drive.ArcadeDrive(rotation, speed);
 }
 
-double driveSubsystem::getYaw() {
-    return navx.GetYaw();
+void driveSubsystem::drive(double speed) {
+    m_drive.ArcadeDrive(speed, 0);
+}
+
+void driveSubsystem::stop() {
+    m_drive.ArcadeDrive(0, 0);
 }

@@ -1,3 +1,6 @@
-#include "frc2/command/CommandPtr.h"
+#pragma once
 
-frc2::CommandPtr DriveForwardAuto();
+#include "frc2/command/CommandPtr.h"
+#include "subsystems/driveSubsystem.h"
+
+frc2::CommandPtr DriveForwardAuto(driveSubsystem* driveSubsystem);
