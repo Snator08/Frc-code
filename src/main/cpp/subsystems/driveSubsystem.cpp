@@ -15,11 +15,19 @@ void driveSubsystem::Periodic() {
 }
 
 void driveSubsystem::arcadeDrive(double rotation, double speed) {
-    m_drive.ArcadeDrive(rotation, speed);
+    m_drive.ArcadeDrive(speed, rotation);
 }
 
-void driveSubsystem::turnRate(double speed) {
-    m_drive.ArcadeDrive(speed, 0);
+void driveSubsystem::faceTarget(frc::Pose2d targetPose) {
+    // Odom positon
+    // auto pose = getPos();
+
+    //double targetAngle = atan2(targetPose.Y() - pose.Y(), targetPose.X() - pose.X());
+
+
+    //double output = m_turnPID.Calculate(pose.Rotation().Degrees().value(), targetAngle);
+
+    //m_drive.ArcadeDrive(0.0, output);
 }
 
 double driveSubsystem::getYaw() {

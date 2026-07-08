@@ -39,7 +39,7 @@ class driveSubsystem : public frc2::SubsystemBase {
         studica::AHRS navx{studica::AHRS::kUSB1};
 
 
-       // frc::DifferentialDriveOdometry m_odometry{};
+        //frc::DifferentialDriveOdometry m_odometry{}
 
        frc::PIDController m_turnPID{1.0, 0.0, 0.0};
 
@@ -48,6 +48,6 @@ class driveSubsystem : public frc2::SubsystemBase {
 
         void Periodic() override;
         void arcadeDrive(double speed, double rotation);
-        void turnRate(double speed);
+        void faceTarget(frc::Pose2d targetPos);
         double getYaw();
 };
