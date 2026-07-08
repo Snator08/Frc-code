@@ -51,5 +51,7 @@ class driveSubsystem : public frc2::SubsystemBase {
         void arcadeDrive(double speed, double rotation);
         void faceTarget(frc::Translation2d targetPose);
         bool isFacingTarget();
+        void drive(double speed);
+        void stop();
         double getYaw();
 };
