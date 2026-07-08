@@ -30,7 +30,8 @@ class driveSubsystem : public frc2::SubsystemBase {
         // Setup Encoder Objects
         //-----------------------
 
-        frc::Encoder m_encoder{0, 1};
+        frc::Encoder m_encoderX{0, 1};
+        frc::Encoder m_encoderY{2, 3};
 
         //-------------------
         // Setup Gyro Object
@@ -39,7 +40,7 @@ class driveSubsystem : public frc2::SubsystemBase {
         studica::AHRS navx{studica::AHRS::kUSB1};
 
 
-        //frc::DifferentialDriveOdometry m_odometry{}
+        frc::DifferentialDriveOdometry m_odometry;
 
        frc::PIDController m_turnPID{1.0, 0.0, 0.0};
 
