@@ -13,4 +13,6 @@ class intakeSubsystem : public frc2::SubsystemBase {
 
     public:
         void Set(double speed);
+
+        // Add motor speed for how far want to shoot function
 };

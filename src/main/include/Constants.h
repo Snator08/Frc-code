@@ -23,3 +23,7 @@ inline std::string camera1Name = "Brio_100";
 inline constexpr double deadwheelCircumference = 10;
 
 }  // namespace OperatorConstants
+
+namespace FieldConstants {
+    inline constexpr frc::Translation2d kBlueGoal{0.0_m, 0.0_m};
+}

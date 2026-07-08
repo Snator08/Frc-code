@@ -27,7 +27,7 @@ void driveSubsystem::arcadeDrive(double rotation, double speed) {
     m_drive.ArcadeDrive(speed, rotation);
 }
 
-void driveSubsystem::faceTarget(frc::Pose2d targetPose) {
+void driveSubsystem::faceTarget(frc::Translation2d targetPose) {
      //Odom positon
      frc::Pose2d pose = m_odometry.GetPose();
 
@@ -37,6 +37,10 @@ void driveSubsystem::faceTarget(frc::Pose2d targetPose) {
     double output = m_turnPID.Calculate(pose.Rotation().Degrees().value(), targetAngle);
 
     m_drive.ArcadeDrive(0.0, output);
+}
+
+bool driveSubsystem::isFacingTarget() {
+    return m_turnPID.AtSetpoint();
 }
 
 double driveSubsystem::getYaw() {
