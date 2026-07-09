@@ -5,6 +5,8 @@ autoShootCommand::autoShootCommand(driveSubsystem* m_drive, diverterSubsystem* m
     AddRequirements({m_drive, m_diverter, m_intake});
 }
 
+void autoShootCommand::Initialize() {}
+
 void autoShootCommand::Execute() {
 
     
