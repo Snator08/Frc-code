@@ -14,13 +14,14 @@ driveSubsystem::driveSubsystem() : m_odometry{navx.GetRotation2d(), units::meter
     m_encoderX.SetDistancePerPulse(OperatorConstants::deadwheelCircumference / 2048);
     m_encoderY.SetDistancePerPulse(OperatorConstants::deadwheelCircumference / 2048);
 
+    frc::SmartDashboard::PutBoolean("Gyro status", navx.IsConnected());
+
 }
 
 void driveSubsystem::Periodic() {
 
     m_odometry.Update(navx.GetRotation2d(), units::meter_t(m_encoderX.GetDistance()), units::meter_t(m_encoderY.GetDistance()));
-
-    frc::SmartDashboard::GetBoolean("Gyro Connected", navx.IsCalibrating());
+    frc::SmartDashboard::PutNumber("Gyro rotation", navx.GetAngle());
 }
 
 void driveSubsystem::arcadeDrive(double rotation, double speed) {

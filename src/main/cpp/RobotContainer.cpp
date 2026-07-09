@@ -10,7 +10,7 @@ RobotContainer::RobotContainer() {
 
     m_drive.SetDefaultCommand(frc2::cmd::Run([this] {
         if(frc::DriverStation::IsTeleopEnabled) {
-            m_drive.arcadeDrive(-m_controller1.GetLeftX(), -m_controller1.GetLeftY());
+            m_drive.arcadeDrive(-m_controller1.GetLeftY(), -m_controller1.GetLeftX());
         }
     },
     {&m_drive}
@@ -25,11 +25,23 @@ m_controller1.A().WhileTrue(frc2::cmd::StartEnd(
 ));
     
 
-m_controller1.B().WhileTrue(frc2::cmd::StartEnd(
-    [this] {m_intake.Set(-1); m_diverter.Set(1);},
-    [this] {m_intake.Set(0); m_diverter.Set(0);},
-    {&m_diverter}
-));
+m_controller1.B().WhileTrue(
+    frc2::cmd::Sequence(
+        frc2::cmd::RunOnce([this] {
+            m_intake.Set(-1);
+        }, {&m_intake}),
+
+        frc2::cmd::Wait(0.5_s),
+
+        frc2::cmd::Run([this] {
+            m_diverter.Set(1);
+        }, {&m_diverter})
+    )
+    .FinallyDo([this](bool interrupted) {
+        m_intake.Set(0);
+        m_diverter.Set(0);
+    })
+);
 
 }
 
