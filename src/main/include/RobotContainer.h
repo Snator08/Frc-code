@@ -24,6 +24,7 @@ class RobotContainer {
   RobotContainer();
 
   frc2::CommandPtr GetAutonomousCommand();
+  
  private:
 
   frc2::CommandXboxController m_controller1{OperatorConstants::controllerPort};

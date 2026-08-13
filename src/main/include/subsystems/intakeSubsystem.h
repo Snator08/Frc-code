@@ -9,9 +9,11 @@ class intakeSubsystem : public frc2::SubsystemBase {
         // Setup Motor Objects
         //--------------------
 
-        rev::spark::SparkMax intakeShootMotor{3, rev::spark::SparkLowLevel::MotorType::kBrushed};
+        rev::spark::SparkMax intakeShootMotor{3, rev::spark::SparkLowLevel::MotorType::kBrushless};
 
     public:
+
+        intakeSubsystem();
         void Set(double speed);
 
         // Add motor speed for how far want to shoot function

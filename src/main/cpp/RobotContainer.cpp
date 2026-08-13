@@ -8,6 +8,8 @@
 RobotContainer::RobotContainer() {
 
 
+    m_intake.Set(1);
+
     m_drive.SetDefaultCommand(frc2::cmd::Run([this] {
         if(frc::DriverStation::IsTeleopEnabled) {
             m_drive.arcadeDrive(-m_controller1.GetLeftY(), -m_controller1.GetLeftX());
