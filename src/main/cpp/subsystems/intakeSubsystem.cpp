@@ -6,8 +6,11 @@ intakeSubsystem::intakeSubsystem() {
 
     config.OpenLoopRampRate(5.0);
 
+
     intakeShootMotor.Configure(config, rev::spark::SparkMax::ResetMode::kResetSafeParameters,
                  rev::spark::SparkMax::PersistMode::kPersistParameters);
+
+
 }
 
 void intakeSubsystem::Set(double speed) {
