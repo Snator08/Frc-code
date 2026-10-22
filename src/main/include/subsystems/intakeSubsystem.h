@@ -9,7 +9,7 @@ class intakeSubsystem : public frc2::SubsystemBase {
         // Setup Motor Objects
         //--------------------
 
-        rev::spark::SparkMax intakeShootMotor{3, rev::spark::SparkLowLevel::MotorType::kBrushless};
+        rev::spark::SparkMax intakeShootMotor{2, rev::spark::SparkLowLevel::MotorType::kBrushless};
 
     public:
 

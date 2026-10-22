@@ -19,7 +19,7 @@ class driveSubsystem : public frc2::SubsystemBase {
         //---------------------
         // Setup Motor Objects
         //---------------------
-        rev::spark::SparkMax motor1Left{9, rev::spark::SparkLowLevel::MotorType::kBrushless}; //Left Side of bot with 1 being the front motors
+        rev::spark::SparkMax motor1Left{3, rev::spark::SparkLowLevel::MotorType::kBrushless}; //Left Side of bot with 1 being the front motors
         rev::spark::SparkMax motor2Left{4, rev::spark::SparkLowLevel::MotorType::kBrushless}; //Left Side of bot with 2 being the rear motors
         rev::spark::SparkMax motor1Right{5, rev::spark::SparkLowLevel::MotorType::kBrushless}; //Right Side of bot with 1 being the front motors
         rev::spark::SparkMax motor2Right{6, rev::spark::SparkLowLevel::MotorType::kBrushless}; //Right Side of bot with 2 being the rear motors

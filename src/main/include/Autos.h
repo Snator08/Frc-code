@@ -4,4 +4,4 @@
 #include "subsystems/driveSubsystem.h"
 #include "subsystems/intakeSubsystem.h"
 
-frc2::CommandPtr DriveForwardAuto(intakeSubsystem* m_intake);
+//frc2::CommandPtr DriveForwardAuto(intakeSubsystem* m_intake);

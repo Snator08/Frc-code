@@ -2,12 +2,12 @@
 #include <rev/config/SparkMaxConfig.h>
 
 intakeSubsystem::intakeSubsystem() {
-    rev::spark::SparkMaxConfig config{};
+    rev::spark::SparkBaseConfig config{};
 
-    config.OpenLoopRampRate(5.0);
+    config.OpenLoopRampRate(2);
 
-    intakeShootMotor.Configure(config, rev::spark::SparkMax::ResetMode::kResetSafeParameters,
-                 rev::spark::SparkMax::PersistMode::kPersistParameters);
+    intakeShootMotor.Configure(config, rev::spark::SparkBase::ResetMode::kNoResetSafeParameters,
+                 rev::spark::SparkBase::PersistMode::kNoPersistParameters);
 
 
 }

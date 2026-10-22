@@ -49,10 +49,10 @@ m_controller1.B().WhileTrue(
 
 }
 
-frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
-    return DriveForwardAuto(&m_intake);
-} 
+//frc2::CommandPtr RobotContainer::GetAutonomousCommand() {
+//    return DriveForwardAuto(&m_intake);
+//} 
 
 void RobotContainer::driveMotors(double speed) {
-    m_drive.drive(speed);
+    m_intake.Set(speed);
 }
